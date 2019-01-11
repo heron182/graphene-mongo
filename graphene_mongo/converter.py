@@ -61,6 +61,7 @@ def convert_field_to_float(field, registry=None):
 @convert_mongoengine_field.register(mongoengine.DictField)
 @convert_mongoengine_field.register(mongoengine.MapField)
 @convert_mongoengine_field.register(mongoengine.PointField)
+@convert_mongoengine_field.register(mongoengine.MultiPolygonField)
 def convert_dict_to_jsonstring(field, registry=None):
     return JSONString(description=field.db_field, required=field.required)
 
